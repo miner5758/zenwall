@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "864653692219",
+    "project_id": "superb-metric-348117",
+    "storage_bucket": "superb-metric-348117.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864653692219:android:3fd91310dd70566160fb1e",
+        "android_client_info": {
+          "package_name": "com.example.zenwall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864653692219-cm9gtptvps3the3ur1913q3ksdf1fe51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfCfxLc14bxAjVzpL98Sxml3ILtaAbvvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864653692219-cm9gtptvps3the3ur1913q3ksdf1fe51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
