@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '864653692219',
     projectId: 'superb-metric-348117',
     authDomain: 'superb-metric-348117.firebaseapp.com',
+    databaseURL: 'https://superb-metric-348117-default-rtdb.firebaseio.com',
     storageBucket: 'superb-metric-348117.appspot.com',
     measurementId: 'G-M6QFYJ8NF3',
   );
@@ -61,6 +62,7 @@ class DefaultFirebaseOptions {
     appId: '1:864653692219:android:3fd91310dd70566160fb1e',
     messagingSenderId: '864653692219',
     projectId: 'superb-metric-348117',
+    databaseURL: 'https://superb-metric-348117-default-rtdb.firebaseio.com',
     storageBucket: 'superb-metric-348117.appspot.com',
   );
 
@@ -69,6 +71,7 @@ class DefaultFirebaseOptions {
     appId: '1:864653692219:ios:a253b4ba0a7e0f1d60fb1e',
     messagingSenderId: '864653692219',
     projectId: 'superb-metric-348117',
+    databaseURL: 'https://superb-metric-348117-default-rtdb.firebaseio.com',
     storageBucket: 'superb-metric-348117.appspot.com',
     iosClientId: '864653692219-7654mj5312boi8doppmahtt87ngjaccb.apps.googleusercontent.com',
     iosBundleId: 'com.example.zenwall',
