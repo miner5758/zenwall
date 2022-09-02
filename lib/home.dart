@@ -6,6 +6,7 @@ import 'package:zenwall/authentication_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zenwall/credit.dart';
 import 'package:zenwall/send.dart';
+import 'package:zenwall/friends.dart';
 import 'package:zenwall/crypto.dart';
 import 'package:zenwall/help.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -147,7 +148,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                             child: InkWell(
                               splashColor: Colors.blue,
                               onTap: () {
-                                refresh();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const FriendPage()),
+                                );
                               },
                               child: Row(
                                 children: <Widget>[

@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow access to photo library</string>
 	<key>CFBundleDisplayName</key>
 	<string>Zenwall</string>
 	<key>CFBundleExecutable</key>

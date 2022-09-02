@@ -221,67 +221,83 @@ class _MyStatefulWidgetStateTwo extends State<MyStatefulWidgetTwo> {
   TextEditingController passwordcontroller = TextEditingController();
 
   void deleteuser(String passwo) async {
-    try {
-      var collection =
-          db.collection('Users').doc(inputData()).collection("Cards");
-      var snapshots = await collection.get();
-      for (var doc in snapshots.docs) {
-        await doc.reference.delete();
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-
-    try {
-      var collection =
-          db.collection('Users').doc(inputData()).collection("Purchases");
-      var snapshots = await collection.get();
-      for (var doc in snapshots.docs) {
-        await doc.reference.delete();
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-
-    try {
-      var collection =
-          db.collection('Users').doc(inputData()).collection("Friends");
-      var snapshots = await collection.get();
-      for (var doc in snapshots.docs) {
-        await doc.reference.delete();
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-
-    db.collection('Users').doc(inputData()).delete();
-    try {
-      final id = inputData();
-      await FirebaseStorage.instance
-          .ref('$id/profilePicture')
-          .listAll()
-          .then((value) {
-        FirebaseStorage.instance.ref(value.items.first.fullPath).delete();
-      });
-    } catch (e) {
-      print(e.toString());
-    }
-
+    bool ew = false;
     var message = "";
+
     try {
       final User? users = auth.currentUser;
       UserCredential? authResult = await users?.reauthenticateWithCredential(
         EmailAuthProvider.credential(
             email: users.email.toString(), password: passwo),
       );
-      final newuse = authResult?.user;
-      await newuse!
-          .delete()
-          .then(
-            (value) => message = 'Success',
-          )
-          .catchError((onError) => message = 'error');
     } on FirebaseAuthException catch (e) {
+      ew = true;
+    }
+
+    if (ew == false) {
+      try {
+        var collection =
+            db.collection('Users').doc(inputData()).collection("Cards");
+        var snapshots = await collection.get();
+        for (var doc in snapshots.docs) {
+          await doc.reference.delete();
+        }
+      } catch (e) {
+        print(e.toString());
+      }
+
+      try {
+        var collection =
+            db.collection('Users').doc(inputData()).collection("Purchases");
+        var snapshots = await collection.get();
+        for (var doc in snapshots.docs) {
+          await doc.reference.delete();
+        }
+      } catch (e) {
+        print(e.toString());
+      }
+
+      try {
+        var collection =
+            db.collection('Users').doc(inputData()).collection("Friends");
+        var snapshots = await collection.get();
+        for (var doc in snapshots.docs) {
+          await doc.reference.delete();
+        }
+      } catch (e) {
+        print(e.toString());
+      }
+
+      db.collection('Users').doc(inputData()).delete();
+      try {
+        final id = inputData();
+        await FirebaseStorage.instance
+            .ref('$id/profilePicture')
+            .listAll()
+            .then((value) {
+          FirebaseStorage.instance.ref(value.items.first.fullPath).delete();
+        });
+      } catch (e) {
+        print(e.toString());
+      }
+
+      try {
+        final User? users = auth.currentUser;
+        UserCredential? authResult = await users?.reauthenticateWithCredential(
+          EmailAuthProvider.credential(
+              email: users.email.toString(), password: passwo),
+        );
+        final newuse = authResult?.user;
+        await newuse!
+            .delete()
+            .then(
+              (value) => message = 'Success',
+            )
+            .catchError((onError) => message = 'error');
+      } on FirebaseAuthException catch (e) {
+        print("Autism");
+      }
+    } else if (ew == true) {
       message = "Not Changed";
     }
 
